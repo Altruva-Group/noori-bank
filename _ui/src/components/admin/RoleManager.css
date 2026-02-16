@@ -1,0 +1,77 @@
+.role-manager {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--background-secondary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.role-manager h2 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.role-manager h3 {
+  margin: 15px 0;
+  color: var(--text-secondary);
+}
+
+.error-message {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border-radius: 4px;
+}
+
+.create-role-section,
+.manage-roles-section {
+  margin-bottom: 20px;
+}
+
+.role-manager input,
+.role-manager select {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.role-manager input:focus,
+.role-manager select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.role-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.role-manager button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.role-manager button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.role-manager button:disabled {
+  background-color: var(--disabled);
+  cursor: not-allowed;
+}
+
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  margin: 10px 0;
+}

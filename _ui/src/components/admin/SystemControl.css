@@ -1,0 +1,133 @@
+.system-control {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--background-secondary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.system-control h2 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.system-control h3 {
+  margin: 15px 0;
+  color: var(--text-secondary);
+}
+
+.control-section {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: var(--background-tertiary);
+  border-radius: 6px;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.system-control input {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.system-control button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.system-control button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.system-control button:disabled {
+  background-color: var(--disabled);
+  cursor: not-allowed;
+}
+
+.status-control {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.status-indicator::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.status-indicator.active {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+}
+
+.status-indicator.active::before {
+  background-color: var(--success);
+}
+
+.status-indicator.paused {
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
+}
+
+.status-indicator.paused::before {
+  background-color: var(--warning);
+}
+
+button.pause {
+  background-color: var(--warning);
+}
+
+button.pause:hover:not(:disabled) {
+  background-color: var(--warning-dark);
+}
+
+button.unpause {
+  background-color: var(--success);
+}
+
+button.unpause:hover:not(:disabled) {
+  background-color: var(--success-dark);
+}
+
+.error-message {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border-radius: 4px;
+}
+
+.loading {
+  text-align: center;
+  color: var(--text-secondary);
+  margin: 10px 0;
+}

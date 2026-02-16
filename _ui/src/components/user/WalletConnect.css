@@ -1,0 +1,87 @@
+.wallet-connect {
+  padding: 1rem;
+}
+
+.wallet-info {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.account-details p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.connect-button,
+.disconnect-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.connect-button {
+  background: #007bff;
+  color: white;
+}
+
+.connect-button:hover {
+  background: #0056b3;
+}
+
+.disconnect-button {
+  background: #dc3545;
+  color: white;
+}
+
+.disconnect-button:hover {
+  background: #c82333;
+}
+
+.balances {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.balances p {
+  margin: 0;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.blacklist-warning {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .account-details {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}

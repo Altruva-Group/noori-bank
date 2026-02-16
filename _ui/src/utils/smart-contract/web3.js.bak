@@ -1,0 +1,146 @@
+import Web3 from 'web3';
+
+class Web3Service {
+    constructor() {
+        this._web3 = null;
+        this._account = null;
+        this._chainId = null;
+        this.eventHandlers = {
+            accountsChanged: [],
+            chainChanged: [],
+            disconnect: []
+        };
+    }
+
+    get web3() {
+        return this._web3;
+    }
+
+    get account() {
+        return this._account;
+    }
+
+    get chainId() {
+        return this._chainId;
+    }
+
+    async ensureWalletAvailable() {
+        if (typeof window.ethereum === 'undefined') {
+            throw new Error('Please install MetaMask to use this application');
+        }
+    }
+
+    async initialize() {
+        await this.ensureWalletAvailable();
+
+        if (this._web3) {
+            return;
+        }
+
+        try {
+            this._web3 = new Web3(window.ethereum);
+            this._chainId = await this.getChainId();
+            
+            // Set up event listeners
+            window.ethereum.on('accountsChanged', this.handleAccountsChanged.bind(this));
+            window.ethereum.on('chainChanged', this.handleChainChanged.bind(this));
+            window.ethereum.on('disconnect', this.handleDisconnect.bind(this));
+        } catch (error) {
+            console.error('Failed to initialize Web3:', error);
+            throw error;
+        }
+    }
+
+    handleAccountsChanged(accounts) {
+        this._account = accounts[0] || null;
+        this.eventHandlers.accountsChanged.forEach(handler => handler(accounts[0] || null));
+    }
+
+    handleChainChanged(chainId) {
+        this._chainId = parseInt(chainId, 16);
+        this.eventHandlers.chainChanged.forEach(handler => handler(this._chainId));
+    }
+
+    handleDisconnect() {
+        this._account = null;
+        this.eventHandlers.disconnect.forEach(handler => handler());
+    }
+
+    createContract(abi, address) {
+        if (!this._web3) {
+            throw new Error('Web3 not initialized');
+        }
+        if (!this._account) {
+            throw new Error('Wallet not connected');
+        }
+        return new this._web3.eth.Contract(abi, address);
+    }
+
+    async connect() {
+        await this.ensureWalletAvailable();
+
+        try {
+            await this.initialize();
+            
+            // Request account access - this triggers the wallet popup
+            const accounts = await window.ethereum.request({
+                method: 'eth_requestAccounts'
+            });
+            
+            if (!accounts || accounts.length === 0) {
+                throw new Error('No accounts available');
+            }
+
+            this._account = accounts[0];
+            this._chainId = await this.getChainId();
+
+            return {
+                account: this._account,
+                chainId: this._chainId
+            };
+        } catch (error) {
+            console.error('Failed to connect wallet:', error);
+            if (error.code === 4001) {
+                throw new Error('Please approve wallet connection to continue');
+            }
+            throw error;
+        }
+    }
+
+    async disconnect() {
+        this._account = null;
+        this._chainId = null;
+        this._web3 = null;
+        window.ethereum.removeListener('accountsChanged', this.handleAccountsChanged);
+        window.ethereum.removeListener('chainChanged', this.handleChainChanged);
+        window.ethereum.removeListener('disconnect', this.handleDisconnect);
+        this.eventHandlers.disconnect.forEach(handler => handler());
+    }
+
+    async getChainId() {
+        await this.ensureWalletAvailable();
+        return parseInt(await window.ethereum.request({ method: 'eth_chainId' }), 16);
+    }
+
+    async validateChainId(expectedChainId) {
+        const currentChainId = await this.getChainId();
+        if (currentChainId !== expectedChainId) {
+            throw new Error(`Please switch to the correct network (Chain ID: ${expectedChainId})`);
+        }
+    }
+
+    on(event, handler) {
+        if (this.eventHandlers[event]) {
+            this.eventHandlers[event].push(handler);
+        }
+    }
+
+    off(event, handler) {
+        if (this.eventHandlers[event]) {
+            this.eventHandlers[event] = this.eventHandlers[event].filter(h => h !== handler);
+        }
+    }
+}
+
+const web3Service = new Web3Service();
+export default web3Service;

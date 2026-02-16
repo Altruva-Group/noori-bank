@@ -1,0 +1,269 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0xA578a6aFA8B09a2581B5a5Dd33C1cD3E5379B370",
+      "txHash": "0xad3500f2b8f360983610d3f64f67c850a9f0f5323a0d6ac47e03681d1f3799b6",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "8274279d680daae8e7d0bd91ed313f13f6bcc60398a8f7da1c0b6ca82305689d": {
+      "address": "0x788C7367A2360d49271878e5388f9ba4e6cb2784",
+      "txHash": "0x573cdc2e5a7bb9f1350dddc23f5f45067c117118e067c393a52d590566c17f97",
+      "layout": {
+        "solcVersion": "0.8.27",
+        "storage": [
+          {
+            "label": "token",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(INooriToken)2852",
+            "contract": "NooriBankBridge",
+            "src": "contracts/NooriBankBridge.sol:17"
+          },
+          {
+            "label": "processedHashes",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_bytes32,t_bool)",
+            "contract": "NooriBankBridge",
+            "src": "contracts/NooriBankBridge.sol:19"
+          },
+          {
+            "label": "remoteBridges",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_mapping(t_uint16,t_address)",
+            "contract": "NooriBankBridge",
+            "src": "contracts/NooriBankBridge.sol:22"
+          },
+          {
+            "label": "endpoint",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_contract(ILayerZeroEndpoint)2819",
+            "contract": "NooriBankBridge",
+            "src": "contracts/NooriBankBridge.sol:23"
+          },
+          {
+            "label": "pendingTransfers",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_bytes32,t_struct(PendingTransfer)1696_storage)",
+            "contract": "NooriBankBridge",
+            "src": "contracts/NooriBankBridge.sol:28"
+          },
+          {
+            "label": "supportedChains",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_mapping(t_uint16,t_struct(ChainSupport)1761_storage)",
+            "contract": "NooriBankBridge",
+            "src": "contracts/NooriBankBridge.sol:51"
+          },
+          {
+            "label": "minGasForTransfer",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_uint256",
+            "contract": "NooriBankBridge",
+            "src": "contracts/NooriBankBridge.sol:52"
+          },
+          {
+            "label": "blockedAddresses",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "NooriBankBridge",
+            "src": "contracts/NooriBankBridge.sol:176"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)73_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(ReentrancyGuardStorage)226_storage": {
+            "label": "struct ReentrancyGuardUpgradeable.ReentrancyGuardStorage",
+            "members": [
+              {
+                "label": "_status",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_contract(ILayerZeroEndpoint)2819": {
+            "label": "contract ILayerZeroEndpoint",
+            "numberOfBytes": "20"
+          },
+          "t_contract(INooriToken)2852": {
+            "label": "contract INooriToken",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_bytes32,t_bool)": {
+            "label": "mapping(bytes32 => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_bytes32,t_struct(PendingTransfer)1696_storage)": {
+            "label": "mapping(bytes32 => struct NooriBankBridge.PendingTransfer)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint16,t_address)": {
+            "label": "mapping(uint16 => address)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint16,t_struct(ChainSupport)1761_storage)": {
+            "label": "mapping(uint16 => struct NooriBankBridge.ChainSupport)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(ChainSupport)1761_storage": {
+            "label": "struct NooriBankBridge.ChainSupport",
+            "members": [
+              {
+                "label": "remoteBridge",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "enabled",
+                "type": "t_bool",
+                "offset": 20,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(PendingTransfer)1696_storage": {
+            "label": "struct NooriBankBridge.PendingTransfer",
+            "members": [
+              {
+                "label": "recipient",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "amount",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "timestamp",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "processed",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_uint16": {
+            "label": "uint16",
+            "numberOfBytes": "2"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.ReentrancyGuard": [
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "_status",
+              "type": "t_uint256",
+              "src": "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol:43",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+.access-widget {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.access-widget h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #dc2626;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.access-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.roles-section {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.roles-section h3 {
+  color: #4b5563;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.role-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 4px;
+}
+
+.role-name {
+  font-weight: 600;
+  color: #374151;
+}
+
+.role-description {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.role-management {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.role-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.role-form select,
+.role-form input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.role-form button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.primary-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #2563eb;
+}
+
+.danger-button {
+  background-color: #ef4444;
+  color: white;
+}
+
+.danger-button:hover {
+  background-color: #dc2626;
+}
+
+.primary-button:disabled,
+.danger-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.confirmation-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog-content {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.dialog-content h4 {
+  color: #1f2937;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.warning {
+  color: #dc2626;
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.dialog-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dialog-buttons button:first-child {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.confirm-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.loading {
+  color: #6b7280;
+  font-style: italic;
+}
+
+@media (min-width: 640px) {
+  .role-form {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,153 @@
+/* Layout */
+.vault-interface {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.vault-actions {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.action-toggle {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.action-toggle button {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.action-toggle button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Form Elements */
+.vault-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.input-group .token-label {
+  position: absolute;
+  right: 1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.submit-button {
+  padding: 1rem;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #218838;
+}
+
+/* Vault Stats */
+.vault-info {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.vault-info h3 {
+  margin: 0 0 1.5rem;
+  color: #333;
+}
+
+.vault-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-item label {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.stat-item value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* States */
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-message {
+  color: #dc3545;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: #ffebee;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .vault-interface {
+    padding: 1rem;
+  }
+  
+  .vault-actions,
+  .vault-info {
+    padding: 1.5rem;
+  }
+  
+  .vault-stats {
+    grid-template-columns: 1fr;
+  }
+}
